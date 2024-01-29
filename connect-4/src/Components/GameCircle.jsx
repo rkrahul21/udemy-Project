@@ -1,17 +1,19 @@
 import {React } from "react";
 
 
-const clickHandler = ()=>{
-    alert("Clicked");
+const clickHandler = (id)=>{
+    alert("Clicked on id no." +id );
 }
-const GameCircle = ({id})=>{ // object destructring
+
+const GameCircle = ({id,color,children})=>{ // object destructring
     console.log(id);
 return(
-    <>
-    <div onClick={clickHandler}>
-        GameCircle
+    
+    <div onClick= {()=>clickHandler(id , color)} style={{backgroundColor:color}} >
+       {children}
+        
     </div>
-    </>
+    
 )
 }
 
