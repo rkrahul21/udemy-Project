@@ -1,20 +1,17 @@
 import {React } from "react";
+import '../Game.css' ;
 
 
-const clickHandler = (id)=>{
-    alert("Clicked on id no." +id );
-}
 
-const GameCircle = ({id,color,children})=>{ // object destructring
-    console.log(id);
+const GameCircle = ({id,children,oncircleclicked})=>{ // object destructring
+
 return(
     
-    <div onClick= {()=>clickHandler(id , color)} style={{backgroundColor:color}} >
-       {children}
+        <div className={`gameCircle player_0`} onClick= {()=>oncircleclicked(id)}  >
+         {children}
         
-    </div>
-    
-)
+       </div>
+   )
 }
 
 export default GameCircle ;
