@@ -4,7 +4,7 @@ import '../Game.css' ;
 import { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { isWinner,isDraw } from "./helper";
+import { isWinner,isDraw ,getComputermove} from "./helper";
 
 import { GAME_STATE_DRAW,
         GAME_STATE_PLAYING,GAME_STATE_WIN,
@@ -25,7 +25,13 @@ const GameBoard = ()=>{
         console.log("init game");
         setgameboard(Array(16).fill(NO_PLAYER));
         setcurrentplayer(PLAYER_1);
+        setgameState(GAME_STATE_PLAYING);
        }
+
+       const suggestMove=()=>{
+            circleClicked(getComputermove(gameboard));
+       }
+
 
         const initboard=()=>{
             const circles = [];
@@ -72,7 +78,7 @@ const GameBoard = ()=>{
         <div  className="gameBoard" >
             {initboard()}
         </div>
-        <Footer onclickevent = {initGame}/>
+        <Footer onclickNewgame = {initGame} onclicksuggest={suggestMove} gameState={gameState}/>
     </>
     )
 }
