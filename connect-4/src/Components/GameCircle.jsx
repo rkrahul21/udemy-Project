@@ -3,12 +3,12 @@ import '../Game.css' ;
 
 
 
-const GameCircle = ({id,children,oncircleclicked})=>{ // object destructring
+const GameCircle = ({id,classCircle,oncircleclicked})=>{ // object destructring
 
 return(
     
-        <div className={`gameCircle player_0`} onClick= {()=>oncircleclicked(id)}  >
-         {children}
+        <div className={`gameCircle ${classCircle}`} onClick= {()=>oncircleclicked(id)}  >
+        
         
        </div>
    )
